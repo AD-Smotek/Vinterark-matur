@@ -1,0 +1,174 @@
+# Práce s digitálními vstupy a výstupy, periferie a řízení na základě času
+
+## 1. Digitální vstupy a digitální výstupy (DI / DO)
+
+Digitální vstupy a výstupy slouží ke komunikaci mezi řídicí jednotkou a okolním světem. Pracují pouze se dvěma stavy – zapnuto/vypnuto, logická 0/1.
+
+### Digitální vstupy (DI)
+- Slouží ke snímání stavů
+- Přijímají signály z:
+  - tlačítek
+  - spínačů
+  - koncových spínačů
+  - senzorů
+- Na základě stavu vstupů řídicí jednotka rozhoduje o dalším řízení
+
+### Digitální výstupy (DO)
+- Slouží k ovládání zařízení
+- Ovládají:
+  - kontrolky
+  - relé
+  - stykače
+  - motory (nepřímo)
+- Výstup může být sepnutý nebo rozepnutý
+
+---
+
+## 2. Řízení na základě času
+
+- Ne všechny reakce systému musí proběhnout okamžitě
+- Často je potřeba:
+  - zpoždění zapnutí
+  - zpoždění vypnutí
+  - časově omezená činnost
+- Řízení na základě času se používá:
+  - v automatizaci
+  - v průmyslu
+  - v domácích instalacích
+
+---
+
+## 3. Integrované periferie
+
+Integrované periferie jsou zařízení, která jsou přímo součástí řídicí jednotky (PLC, mikrokontrolér).
+
+### Příklady integrovaných periferií
+- vestavěné digitální vstupy a výstupy
+- interní časovače (timery)
+- interní čítače (counters)
+- paměť
+- systémové hodiny
+
+### Výhody integrovaných periferií
+- vysoká spolehlivost
+- rychlá odezva
+- nezávislost na síťové komunikaci
+- funkčnost i při výpadku sítě
+
+### Pohled síťaře
+- nezatěžují síť
+- nevytvářejí další síťové uzly
+- snižují riziko poruch
+- zvyšují determinismus systému
+
+---
+
+## 4. Externí periferie
+
+Externí periferie jsou zařízení připojená k řídicí jednotce zvenčí. Slouží k rozšíření funkčnosti systému.
+
+### Příklady externích periferií
+- tlačítka
+- kontrolky
+- senzory
+- reléové moduly
+- vzdálené I/O moduly
+
+### Externí periferie a sítě
+- Často komunikují přes sběrnice nebo průmyslové sítě
+- Používané technologie:
+  - Ethernet
+  - Modbus
+  - PROFINET
+  - CAN
+  - RS-485
+
+### Pohled síťaře
+- každá externí periferie je další uzel v síti
+- nutnost správné adresace
+- riziko latence nebo výpadku komunikace
+- nutné oddělení IT a OT sítí
+- důležité je stínění kabeláže a vhodná topologie
+
+---
+
+## 5. Připojení tlačítka k digitálnímu vstupu (DI)
+
+- Tlačítko je typický digitální vstup
+- Zapojení:
+  - jeden kontakt tlačítka na napájení
+  - druhý kontakt na digitální vstup DI
+- Po stisknutí tlačítka:
+  - dojde ke změně logického stavu
+  - řídicí jednotka tuto změnu vyhodnotí
+
+### Typy kontaktů
+- NO (Normally Open)
+- NC (Normally Closed), často používaný u bezpečnostních obvodů
+
+---
+
+## 6. Připojení kontrolky k digitálnímu výstupu (DO)
+
+- Kontrolka je typický digitální výstup
+- Zapojení:
+  - mezi výstup DO a napájení
+- Při aktivaci výstupu:
+  - kontrolka se rozsvítí
+
+### Bezpečnost a výkon
+- U větší zátěže se:
+  - nepřipojuje zařízení přímo na výstup
+  - používá relé nebo stykač
+
+---
+
+## 7. Timer (časovač)
+
+Timer slouží k práci s časem a vytváření časových závislostí v řízení.
+
+### Použití timerů
+- zpožděné zapnutí zařízení
+- zpožděné vypnutí zařízení
+- sepnutí na přesně daný čas
+
+### Základní typy timerů
+- TON – zpožděné zapnutí
+- TOF – zpožděné vypnutí
+- TP – impulz po danou dobu
+
+### Síťařský pohled
+- timery běží lokálně v řídicí jednotce
+- nejsou závislé na síťové komunikaci
+- důležité pro bezpečnost a spolehlivost
+
+---
+
+## 8. Counter (čítač)
+
+- Slouží k počítání událostí
+- Počítá:
+  - impulzy
+  - stisky tlačítek
+  - průchody senzorem
+- Použití:
+  - výrobní linky
+  - evidence kusů
+  - automatizované systémy
+
+---
+
+## 9. Příklady řízení na základě času
+
+- schodišťové osvětlení
+- semafory
+- doběh ventilátoru
+- zpožděné spuštění motoru
+- automatické zavlažovací systémy
+- signalizační zařízení
+
+---
+
+## 10. Závěrečné shrnutí
+
+Digitální vstupy a výstupy tvoří základ automatického řízení. Integrované periferie zajišťují rychlou a spolehlivou funkci bez závislosti na síti, zatímco externí periferie rozšiřují systém a vyžadují správně navrženou síťovou infrastrukturu. Časovače a čítače umožňují řízení na základě času a událostí, což je nezbytné v moderních automatizovaných systémech.
