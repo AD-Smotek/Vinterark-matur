@@ -1,0 +1,116 @@
+# Regulace
+
+## 1. Co je regulace
+
+Regulace je proces, při kterém se udržuje regulovaná veličina na požadované hodnotě nebo v požadovaném rozsahu, a to i při změnách okolních podmínek nebo rušivých vlivech. Regulace probíhá automaticky pomocí regulační smyčky.
+
+Cílem regulace je minimalizovat regulační odchylku, tedy rozdíl mezi požadovanou hodnotou a skutečnou hodnotou.
+
+---
+
+## 2. Regulační schéma a jeho části
+
+Základní regulační schéma obsahuje tyto části:
+
+- žádaná hodnota (w)
+- regulátor
+- akční člen
+- regulovaná soustava
+- senzor (měřicí člen)
+- zpětná vazba
+- regulovaná veličina (y)
+
+Princip činnosti:
+Senzor snímá skutečnou hodnotu regulované veličiny a předává ji regulátoru. Regulátor porovnává skutečnou hodnotu s hodnotou žádanou a podle rozdílu (regulační odchylky) řídí akční člen.
+
+---
+
+## 3. Dvoustavový regulátor bez hystereze
+
+Dvoustavový regulátor má pouze dva výstupy:
+- zapnuto
+- vypnuto
+
+Bez hystereze přepíná přesně při dosažení žádané hodnoty.
+
+### Příklad:
+Termostat, který zapne topení při teplotě nižší než 22 °C a vypne přesně při dosažení 22 °C.
+
+Nevýhoda:
+- časté spínání výstupu
+- opotřebení relé
+- nestabilní regulace
+
+---
+
+## 4. Dvoustavový regulátor s hysterezí
+
+Hystereze vytváří pásmo, ve kterém se stav regulátoru nemění.
+
+### Příklad:
+- zapnutí topení při teplotě 21 °C
+- vypnutí topení při teplotě 23 °C
+
+Výhody:
+- stabilnější regulace
+- menší počet sepnutí
+- delší životnost akčních členů
+
+---
+
+## 5. Význam senzorů v regulátorech
+
+Senzory jsou klíčovou součástí regulace, protože:
+- poskytují aktuální informaci o regulované veličině
+- umožňují zpětnou vazbu
+- ovlivňují přesnost a stabilitu regulace
+
+Příklady:
+- teplotní senzor v termostatu
+- tlakový senzor v kompresoru
+- hladinový senzor v nádrži
+- otáčkový senzor u motoru
+
+Bez senzorů by regulace nebyla možná.
+
+---
+
+## 6. Algoritmus dvoustavového regulátoru (příklad – jazyk C / Arduino)
+
+### Dvoustavový regulátor bez hystereze
+
+```c
+float zadanaHodnota = 22.0;
+float skutecnaHodnota;
+bool vystup;
+
+void loop() {
+    skutecnaHodnota = nactiSenzor();
+
+    if (skutecnaHodnota < zadanaHodnota) {
+        vystup = true;
+    } else {
+        vystup = false;
+    }
+
+    nastavVystup(vystup);
+}
+
+float zadanaHodnota = 22.0;
+float hystereze = 1.0;
+float skutecnaHodnota;
+bool vystup = false;
+
+void loop() {
+    skutecnaHodnota = nactiSenzor();
+
+    if (skutecnaHodnota < (zadanaHodnota - hystereze)) {
+        vystup = true;
+    }
+
+    if (skutecnaHodnota > (zadanaHodnota + hystereze)) {
+        vystup = false;
+    }
+
+    nastavVystup(vystup);
+}
