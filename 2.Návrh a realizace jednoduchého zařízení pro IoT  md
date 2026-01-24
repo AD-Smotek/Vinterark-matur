@@ -1,0 +1,153 @@
+1️⃣ Co je Internet věcí (IoT)
+
+Internet věcí (IoT – Internet of Things) je koncept, kdy jsou fyzická zařízení připojena k internetu a jsou schopna:
+
+sbírat data pomocí senzorů
+
+odesílat data do sítě (cloud, server, aplikace)
+
+přijímat příkazy a reagovat na ně
+
+případně spolu komunikovat bez zásahu člověka
+
+Příklady IoT:
+
+chytrý termostat
+
+meteostanice
+
+chytré zásuvky
+
+bezpečnostní kamery
+
+senzory teploty, vlhkosti, pohybu
+
+Cílem IoT je automatizace, vzdálené ovládání a sběr dat.
+
+2️⃣ Základní požadavky kladené na IoT zařízení
+a) Hardwarové požadavky
+
+Mikrokontrolér (např. ESP32, Arduino, STM32)
+
+Senzory / akční členy (teplota, relé, LED, motor)
+
+Komunikační modul
+
+Wi-Fi
+
+Bluetooth
+
+LoRa
+
+Ethernet
+
+Napájení
+
+adaptér
+
+baterie (nízká spotřeba)
+
+b) Softwarové požadavky
+
+firmware pro řízení zařízení
+
+schopnost komunikace (HTTP, MQTT)
+
+možnost aktualizace (OTA)
+
+stabilita a spolehlivost
+
+c) Provozní požadavky
+
+nízká spotřeba energie
+
+dlouhodobý provoz bez zásahu
+
+odolnost vůči chybám a výpadkům
+
+3️⃣ IoT zařízení z hlediska bezpečnosti
+🔒 Safety vs. Security
+🔹 Safety (provozní bezpečnost)
+
+Zajišťuje, že zařízení:
+
+neohrozí člověka ani majetek
+
+správně reaguje na chyby (např. přehřátí)
+
+má ochrany:
+
+pojistky
+
+watchdog
+
+nouzové vypnutí
+
+📌 Příklad: relé se při chybě vypne, aby nedošlo k požáru.
+
+🔹 Security (kybernetická bezpečnost)
+
+Zajišťuje ochranu proti:
+
+neoprávněnému přístupu
+
+útokům z internetu
+
+krádeži dat
+
+Používá se:
+
+šifrování komunikace (TLS, HTTPS)
+
+hesla, certifikáty, tokeny
+
+aktualizace firmwaru
+
+oddělení sítí (firewall, VLAN)
+
+📌 Příklad: zařízení komunikuje se serverem pouze přes šifrované spojení.
+
+4️⃣ Příklad realizace jednoduchého IoT zařízení (HW + SW)
+🛠️ Zadání:
+
+Měření teploty a odesílání dat do mobilní aplikace
+
+🔧 Hardware
+
+ESP32 (mikrokontrolér s Wi-Fi)
+
+teplotní senzor DHT22
+
+napájení přes USB / adaptér
+
+💾 Software
+
+program napsaný v Arduino IDE
+
+čtení hodnoty ze senzoru
+
+připojení k Wi-Fi
+
+odeslání dat na server pomocí MQTT nebo HTTP
+
+zobrazení dat v mobilní / webové aplikaci
+
+🌐 Komunikace
+
+zařízení odešle teplotu každých 10 sekund
+
+server data uloží
+
+uživatel je vidí v aplikaci
+
+5️⃣ Shrnutí (ideální na konec odpovědi)
+
+IoT propojuje fyzická zařízení s internetem
+
+Základem je mikrokontrolér, senzory a komunikace
+
+Důležité jsou nízká spotřeba a spolehlivost
+
+Bezpečnost se dělí na safety a security
+
+Jednoduché IoT zařízení lze postavit např. na ESP32
